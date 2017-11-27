@@ -47,7 +47,7 @@ class DeckList extends Component {
             title={item}
             key={item}
             subtitle={Object.keys(this.state.decksOfCards[item]).length}
-            onPress={() => this.props.navigation.navigate('NewQuestion',
+            onPress={() => this.props.navigation.navigate('DeckView',
             { deck: this.state.decksOfCards[item]})}
           />
         )}

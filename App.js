@@ -8,6 +8,7 @@ import { StackNavigator } from 'react-navigation'
 import { List, ListItem } from "react-native-elements"
 import DeckList from './components/DeckList'
 import NewQuestion from './components/NewQuestion'
+import DeckView from './components/DeckView'
 
 
 
@@ -17,6 +18,9 @@ const MainNavigator = StackNavigator({
   },
   NewQuestion: {
     screen: NewQuestion
+  },
+  DeckView: {
+    screen: DeckView
   }
 })
 
