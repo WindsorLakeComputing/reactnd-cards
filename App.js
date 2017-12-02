@@ -9,6 +9,7 @@ import { List, ListItem } from "react-native-elements"
 import DeckList from './components/DeckList'
 import NewQuestion from './components/NewQuestion'
 import DeckView from './components/DeckView'
+import QuizView from './components/QuizView'
 
 
 
@@ -21,6 +22,9 @@ const MainNavigator = StackNavigator({
   },
   DeckView: {
     screen: DeckView
+  },
+  QuizView: {
+    screen: QuizView
   }
 })
 
