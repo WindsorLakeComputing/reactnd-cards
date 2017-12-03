@@ -7,8 +7,9 @@ class DeckView extends Component {
     	super(props);
     }
 
-  componentWillMount(){
-    console.log("Inside of DeckView.js ... deck ===", this.props.navigation.state.params.deck)
+  addCard = () => {
+    this.props.navigation.navigate('NewQuestion',
+      { deckTitle: this.props.navigation.state.params.deckTitle})
   }
 
   startQuiz = () => {
@@ -24,7 +25,7 @@ class DeckView extends Component {
       	<Text
       	style={styles.listing}>{this.props.navigation.state.params.deck.length} cards</Text>
         <Button 
-          onPress={this.submit} 
+          onPress={this.addCard} 
           title="Add Card" 
           color="#000000" 
           accessibilityLabel="Submit your question and answer" />

@@ -16,28 +16,22 @@ class DeckList extends Component {
   }
 
   async componentDidMount(){
-    //var deckOfCards = 
-    //this.setState({decksOfCards: Object.keys(JSON.parse(await getDecks()))});
-    //var deckOfCards = Object.keys(JSON.parse(await getDecks()));
     this.setState({ loading: true, decksOfCards: JSON.parse(await getDecks())});
+  }
 
-    console.log("deckOfCards is ... ", this.state.decksOfCards);
-
-    //console.log("Inside of componentDidMount() ... The Deck of Cards are ", deckOfCards);
-    /**
-    console.log("Deck keys are ", Object.keys(deckOfCards));
-     var aCard = { 
-      question: 'Where do babies come from?',
-      answer: 'The stork',
-    };
-    await saveDeckTitle("SmallTalk");
-    await addCardToDeck("SmallTalk", aCard)
-    */
-    
+  addNewDeck = () => {
+    console.log("addANewDeck!")
+    this.props.navigation.navigate('NewDeck')
   }
 
   render() {
     return (
+      <View style={styles.container}>
+      <Button 
+          onPress={this.addNewDeck}
+          title="Add a New Deck" 
+          color="#000000" 
+          accessibilityLabel="Submit your question and answer" />
       <List>
       <FlatList
         data={Object.keys(this.state.decksOfCards)}
@@ -48,11 +42,12 @@ class DeckList extends Component {
             key={item}
             subtitle={Object.keys(this.state.decksOfCards[item]).length}
             onPress={() => this.props.navigation.navigate('DeckView',
-            { deck: this.state.decksOfCards[item]})}
+            { deck: this.state.decksOfCards[item], deckTitle: item})}
           />
         )}
       />
     </List>
+    </View>
     )
   }
 }
@@ -61,7 +56,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'flex-start',
-    alignItems: 'center',
   },
   box: {
     alignSelf: 'stretch',

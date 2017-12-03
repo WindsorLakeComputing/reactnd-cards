@@ -1,36 +1,33 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
-import { addCardToDeck } from '../utils/api'
+import { saveDeckTitle } from '../utils/api'
 
 
-class NewQuestion extends Component {
+class NewDeck extends Component {
     constructor(props) {
     super(props);
     this.state = { 
-      question: 'Enter your question here',
-      answer: 'Enter your answer here',
+      title: 'Deck Title',
     };
   }
 
+  componentDidMount(){
+    console.log("Inside of NewDeck.js ")
+  }
+
   submit = () => {
-    this.setState(() => ({ question: 'Enter your question here', answer: 'Enter your answer here' }))
-    var newCard = {
-      question: this.state.question,
-      answer: this.state.answer,
-    }
-    addCardToDeck(this.props.navigation.state.params.deckTitle, newCard)
+    saveDeckTitle(this.state.title)
+    this.setState(() => ({ title: 'Deck Title' }))
   }
 
   render() {
     return (
       <View style={styles.container}>
+        <Text
+        style={styles.title}>What is the title of your new deck?</Text>
         <TextInput
-          onChangeText={(question) => this.setState({question})}
-          value={this.state.question}
-          style={styles.box}/>
-        <TextInput
-          onChangeText={(answer) => this.setState({answer})}
-          value={this.state.answer}
+          onChangeText={(title) => this.setState({title})}
+          value={this.state.title}
           style={styles.box}/>
         <Button 
           onPress={this.submit} 
@@ -53,7 +50,12 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: '#f0ffff',
     margin: 50,
-  }
+  },
+  title: {
+    fontSize: 31,
+    textAlign: 'center',
+    margin: 10,
+  },
 })
 
-export default NewQuestion
+export default NewDeck

@@ -24,6 +24,7 @@
     "react-native": "^0.49.5",
     "react-native-elements": "^0.18.2",
     "react-native-flip-card": "^3.5.2",
+    "react-native-tabs": "^1.0.9",
     "react-navigation": "^1.0.0-beta.21",
     "reactotron-react-native": "^1.12.3"
   }

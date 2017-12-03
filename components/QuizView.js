@@ -114,15 +114,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-  fontSize: 31,
-  textAlign: 'center',
-  margin: 10,
+    fontSize: 31,
+    textAlign: 'center',
+    margin: 10,
   },
   listing: {
-  fontSize: 16,
-  textAlign: 'center',
-  color: '#333333',
-  marginBottom: 5,
+    fontSize: 16,
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
   },
   box: {
     alignSelf: 'stretch',
