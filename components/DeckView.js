@@ -30,11 +30,15 @@ class DeckView extends Component {
           color="#000000" 
           accessibilityLabel="Submit your question and answer" />
           <View/>
+         {
+        this.props.navigation.state.params.deck.length > 0 ? (
         <Button 
           onPress={this.startQuiz} 
           title="Start Quiz" 
           color="#000000" 
           accessibilityLabel="Begin the quiz" />
+         ) : (
+         null )}
       </View>
     )
   }

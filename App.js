@@ -11,8 +11,7 @@ import NewQuestion from './components/NewQuestion'
 import NewDeck from './components/NewDeck'
 import DeckView from './components/DeckView'
 import QuizView from './components/QuizView'
-
-
+import { setLocalNotification } from './utils/helpers'
 
 const MainNavigator = StackNavigator({
   DeckList: {
@@ -33,6 +32,11 @@ const MainNavigator = StackNavigator({
 })
 
 export default class App extends Component {
+
+  componentDidMount() {
+    setLocalNotification()
+}
+
   render() {
     
     return (

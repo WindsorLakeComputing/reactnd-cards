@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity } from 'react-native'
 import FlipCard from 'react-native-flip-card'
+import {
+  getDailyReminderValue,
+  clearLocalNotification,
+  setLocalNotification
+} from '../utils/helpers'
 
 
 class QuizView extends Component {
@@ -39,6 +44,11 @@ class QuizView extends Component {
 
   calcScore = () => {
     return (this.state.numCorrect / (this.state.numCorrect + this.state.numIncorrect)) * 100;
+  }
+
+  clearNotifs = () => {
+    clearLocalNotification()
+      .then(setLocalNotification)
   }
 
   render() {
@@ -84,6 +94,7 @@ class QuizView extends Component {
           <View style={{flex: .8}}>
           <Text style={styles.title}>Thanks for playing!</Text>
           <Text style={styles.listing}>You scored {this.calcScore()}%</Text>
+          {this.clearNotifs()}
           </View>
          )}
       </View>
