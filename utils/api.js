@@ -13,6 +13,9 @@ export async function saveDeck( deck ) {
 export async function getDecks() {
 try {
       let decks = await AsyncStorage.getItem(CARDS_STORAGE_KEY);
+      if(decks === null){
+        decks = '{}';
+      }
       return decks;
     } catch (error) {
       console.log("Error retrieving data" + error);
