@@ -4,12 +4,13 @@ import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
 
 class DeckView extends Component {
     constructor(props) {
-    	super(props);
+      super(props);
     }
 
   addCard = () => {
     this.props.navigation.navigate('NewQuestion',
-      { deckTitle: this.props.navigation.state.params.deckTitle})
+      { deckTitle: this.props.navigation.state.params.deckTitle,
+      deck: this.props.navigation.state.params.deck})
   }
 
   startQuiz = () => {
@@ -20,10 +21,10 @@ class DeckView extends Component {
   render() {
     return (
       <View style={styles.container}>
-      	<Text
-      	style={styles.title}>udacicards</Text>
-      	<Text
-      	style={styles.listing}>{this.props.navigation.state.params.deck.length} cards</Text>
+        <Text
+        style={styles.title}>udacicards</Text>
+        <Text
+        style={styles.listing}>{this.props.navigation.state.params.deck.length} cards</Text>
         <Button 
           onPress={this.addCard} 
           title="Add Card" 
@@ -51,15 +52,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-	fontSize: 31,
-	textAlign: 'center',
-	margin: 10,
+  fontSize: 31,
+  textAlign: 'center',
+  margin: 10,
   },
   listing: {
-	fontSize: 16,
-	textAlign: 'center',
-	color: '#333333',
-	marginBottom: 5,
+  fontSize: 16,
+  textAlign: 'center',
+  color: '#333333',
+  marginBottom: 5,
   },
   box: {
     alignSelf: 'stretch',

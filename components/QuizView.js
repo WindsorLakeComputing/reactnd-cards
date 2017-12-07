@@ -30,14 +30,12 @@ class QuizView extends Component {
   }
 
   onIncorrect = () => {
-    console.log("onIncorrect ... this.state.deck === ", this.state.deck);
     this.setState((state) => ({
       numIncorrect: state.numIncorrect +1}))
     this.advanceCard()
   }
 
   advanceCard = () => {
-    console.log("INSIDE of advanceCard === ");
     this.setState((state) => ({
       deck: state.deck.splice(1, state.deck.length)}))
   }
