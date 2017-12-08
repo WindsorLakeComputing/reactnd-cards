@@ -20,7 +20,6 @@ class DeckList extends Component {
   }
 
   addNewDeck = () => {
-    console.log("addANewDeck!")
     this.props.navigation.navigate('NewDeck')
   }
 

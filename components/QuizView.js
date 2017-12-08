@@ -12,7 +12,7 @@ class QuizView extends Component {
     constructor(props) {
     super(props);
     this.state = { 
-      deck: {},
+      curDeck: {},
       flip: false,
       numCorrect: 0,
       numIncorrect: 0
@@ -20,7 +20,7 @@ class QuizView extends Component {
   }
 
   componentWillMount(){
-    this.setState(() => ({ deck: this.props.navigation.state.params.deck }))
+    this.setState(() => ({ curDeck: this.props.navigation.state.params.deck }))
   }
 
   onCorrect = () => {
@@ -35,9 +35,21 @@ class QuizView extends Component {
     this.advanceCard()
   }
 
+  restartQuiz = () => {
+    this.setState(() => ({ curDeck: this.props.navigation.state.params.deck }))
+    this.setState(() => ({ numCorrect: 0 }))
+    this.setState(() => ({ numIncorrect: 0 }))
+  }
+
+  returnToDeckView = () => {
+    this.props.navigation.navigate('DeckView',
+      { deck: this.props.navigation.state.params.deck, 
+        deckTitle: this.props.navigation.state.params.deckTitle})
+  }
+
   advanceCard = () => {
     this.setState((state) => ({
-      deck: state.deck.splice(1, state.deck.length)}))
+      curDeck: state.curDeck.slice(1, state.curDeck.length)}))
   }
 
   calcScore = () => {
@@ -53,7 +65,7 @@ class QuizView extends Component {
     return (
       <View style={styles.container}>
       {
-        this.state.deck.length > 0 ? (
+        this.state.curDeck.length > 0 ? (
         <View style={{flex: .8}}>
        <FlipCard
           style={styles.card}
@@ -64,18 +76,18 @@ class QuizView extends Component {
        >
         {/* Face Side */}
         <View style={styles.face}>
-          <Text>{this.state.deck[0]['question']}</Text>
+          <Text>{this.state.curDeck[0]['question']}</Text>
         </View>
         {/* Back Side */}
         <View style={styles.back}>
-          <Text>{this.state.deck[0]['answer']}</Text>
+          <Text>{this.state.curDeck[0]['answer']}</Text>
         </View>
        </FlipCard>
       <TouchableOpacity onPress={()=>{this.setState({flip: !this.state.flip})}}> 
           <Text>Answer</Text>
       </TouchableOpacity>
         <Text
-        style={styles.listing}>{this.state.deck.length} cards left</Text>
+        style={styles.listing}>{this.state.curDeck.length} cards left</Text>
         <Button 
           onPress={this.onCorrect}
           title="Correct" 
@@ -92,6 +104,17 @@ class QuizView extends Component {
           <View style={{flex: .8}}>
           <Text style={styles.title}>Thanks for playing!</Text>
           <Text style={styles.listing}>You scored {this.calcScore()}%</Text>
+        <Button 
+          onPress={this.restartQuiz}
+          title="Restart Quiz" 
+          color="#000000" 
+          accessibilityLabel="Restart Quiz" />
+          <View/>
+        <Button 
+          onPress={this.returnToDeckView} 
+          title="Return to Deck" 
+          color="#000000" 
+          accessibilityLabel="Begin the quiz" />
           {this.clearNotifs()}
           </View>
          )}
