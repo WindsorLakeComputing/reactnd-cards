@@ -5,6 +5,7 @@ import '../ReactotronConfig'
 import { CARDS_STORAGE_KEY } from '../utils/_cards'
 import { StackNavigator } from 'react-navigation'
 import { List, ListItem } from "react-native-elements"
+import { black, lightBlue } from '../utils/colors'
 
 class DeckList extends Component {
     constructor(props) {
@@ -29,7 +30,7 @@ class DeckList extends Component {
       <Button 
           onPress={this.addNewDeck}
           title="Add a New Deck" 
-          color="#000000" 
+          color={black} 
           accessibilityLabel="Submit your question and answer" />
       <List>
       <FlatList
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   box: {
     alignSelf: 'stretch',
     height: 50,
-    backgroundColor: '#f0ffff',
+    backgroundColor: lightBlue,
     margin: 50,
   }
 })

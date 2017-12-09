@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
+import { black, darkGrey, lightGrey } from '../utils/colors'
 
 
 class DeckView extends Component {
@@ -28,7 +29,7 @@ class DeckView extends Component {
         <Button 
           onPress={this.addCard} 
           title="Add Card" 
-          color="#000000" 
+          color={black}
           accessibilityLabel="Submit your question and answer" />
           <View/>
          {
@@ -36,7 +37,7 @@ class DeckView extends Component {
         <Button 
           onPress={this.startQuiz} 
           title="Start Quiz" 
-          color="#000000" 
+          color={black}
           accessibilityLabel="Begin the quiz" />
          ) : (
          null )}
@@ -59,13 +60,13 @@ const styles = StyleSheet.create({
   listing: {
   fontSize: 16,
   textAlign: 'center',
-  color: '#333333',
+  color: darkGrey,
   marginBottom: 5,
   },
   box: {
     alignSelf: 'stretch',
     height: 50,
-    backgroundColor: '#f0ffff',
+    backgroundColor: lightGrey,
     margin: 50,
   }
 })

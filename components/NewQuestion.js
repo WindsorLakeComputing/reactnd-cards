@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
+import { StyleSheet, Text, View, TextInput, Button, KeyboardAvoidingView } from 'react-native'
 import { addCardToDeck } from '../utils/api'
-
+import { lightBlue, black } from '../utils/colors'
 
 class NewQuestion extends Component {
     constructor(props) {
@@ -28,7 +28,7 @@ class NewQuestion extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <TextInput
           onChangeText={(question) => this.setState({question})}
           value={this.state.question}
@@ -40,9 +40,9 @@ class NewQuestion extends Component {
         <Button 
           onPress={this.submit} 
           title="Submit" 
-          color="#000000" 
+          color={black}
           accessibilityLabel="Submit your question and answer" />
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 }
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   box: {
     alignSelf: 'stretch',
     height: 50,
-    backgroundColor: '#f0ffff',
+    backgroundColor: lightBlue,
     margin: 50,
   }
 })

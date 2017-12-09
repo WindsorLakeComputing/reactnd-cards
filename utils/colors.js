@@ -1,0 +1,6 @@
+export const neonGreen = '#2ecc71'
+export const yellow = '#f1c40f'
+export const lightBlue = '#f0ffff'
+export const black = '#000000'
+export const darkGrey = '#333333'
+export const lightGrey = '#f0ffff'

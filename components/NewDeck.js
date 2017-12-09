@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native'
+import { StyleSheet, Text, View, TextInput, Button, KeyboardAvoidingView } from 'react-native'
 import { saveDeckTitle } from '../utils/api'
-
+import { black, lightGrey } from '../utils/colors'
 
 class NewDeck extends Component {
     constructor(props) {
@@ -19,7 +19,7 @@ class NewDeck extends Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <Text
         style={styles.title}>What is the title of your new deck?</Text>
         <TextInput
@@ -29,9 +29,9 @@ class NewDeck extends Component {
         <Button 
           onPress={this.submit} 
           title="Submit" 
-          color="#000000" 
+          color={black}
           accessibilityLabel="Submit your question and answer" />
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 }
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   box: {
     alignSelf: 'stretch',
     height: 50,
-    backgroundColor: '#f0ffff',
+    backgroundColor: lightGrey,
     margin: 50,
   },
   title: {

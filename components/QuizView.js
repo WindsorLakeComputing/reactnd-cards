@@ -6,7 +6,7 @@ import {
   clearLocalNotification,
   setLocalNotification
 } from '../utils/helpers'
-
+import { neonGreen, yellow, black, darkGrey, lightGrey } from '../utils/colors'
 
 class QuizView extends Component {
     constructor(props) {
@@ -91,13 +91,13 @@ class QuizView extends Component {
         <Button 
           onPress={this.onCorrect}
           title="Correct" 
-          color="#000000" 
+          color={black} 
           accessibilityLabel="Submit your question and answer" />
           <View/>
         <Button 
           onPress={this.onIncorrect} 
           title="Incorrect" 
-          color="#000000" 
+          color={black} 
           accessibilityLabel="Begin the quiz" />
           </View>
           ) : (
@@ -107,13 +107,13 @@ class QuizView extends Component {
         <Button 
           onPress={this.restartQuiz}
           title="Restart Quiz" 
-          color="#000000" 
+          color={black} 
           accessibilityLabel="Restart Quiz" />
           <View/>
         <Button 
           onPress={this.returnToDeckView} 
           title="Return to Deck" 
-          color="#000000" 
+          color={black} 
           accessibilityLabel="Begin the quiz" />
           {this.clearNotifs()}
           </View>
@@ -135,13 +135,13 @@ const styles = StyleSheet.create({
   },
   face: {
     flex:1,
-    backgroundColor: '#2ecc71',
+    backgroundColor: neonGreen,
     justifyContent: 'center',
     alignItems: 'center',
   },
   back: {
     flex:1,
-    backgroundColor: '#f1c40f',
+    backgroundColor: yellow,
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -153,13 +153,13 @@ const styles = StyleSheet.create({
   listing: {
     fontSize: 16,
     textAlign: 'center',
-    color: '#333333',
+    color: darkGrey,
     marginBottom: 5,
   },
   box: {
     alignSelf: 'stretch',
     height: 50,
-    backgroundColor: '#f0ffff',
+    backgroundColor: lightGrey,
     margin: 50,
   }
 })

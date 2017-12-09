@@ -6,3 +6,6 @@ Download this project into a directory. Inside of the project root directory run
 
 ## Running
 Inside of the project root directory run the command 'yarn start' in order to begin running the project. Once started the command line will eventually state the http address to type into your EXPO app. Go to that address to use the program. 
+
+## Tested On
+This app was tested on a Samsung Galaxy S6 running the Android 7 OS.

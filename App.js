@@ -4,32 +4,11 @@ import { saveDeck, getDecks, clear, saveDeckTitle, addCardToDeck } from './utils
 import { timeToString } from './utils/helpers'
 import './ReactotronConfig'
 import { CARDS_STORAGE_KEY } from './utils/_cards'
-import { StackNavigator } from 'react-navigation'
 import { List, ListItem } from "react-native-elements"
-import DeckList from './components/DeckList'
-import NewQuestion from './components/NewQuestion'
-import NewDeck from './components/NewDeck'
-import DeckView from './components/DeckView'
-import QuizView from './components/QuizView'
 import { setLocalNotification } from './utils/helpers'
+import { MainNavigator } from './utils/helpers'
+import { lightBlue } from './utils/colors'
 
-const MainNavigator = StackNavigator({
-  DeckList: {
-    screen: DeckList
-  },
-  NewQuestion: {
-    screen: NewQuestion
-  },
-  NewDeck: {
-    screen: NewDeck
-  },
-  DeckView: {
-    screen: DeckView
-  },
-  QuizView: {
-    screen: QuizView
-  }
-})
 
 export default class App extends Component {
 
@@ -57,7 +36,7 @@ const styles = StyleSheet.create({
   box: {
     alignSelf: 'stretch',
     height: 50,
-    backgroundColor: '#f0ffff',
+    backgroundColor: lightBlue,
     margin: 50,
   }
 })

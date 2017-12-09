@@ -1,6 +1,12 @@
 import { Notifications, Permissions } from 'expo'
 import React from 'react'
 import { AsyncStorage } from 'react-native'
+import { StackNavigator } from 'react-navigation'
+import DeckList from '../components/DeckList'
+import NewQuestion from '../components/NewQuestion'
+import NewDeck from '../components/NewDeck'
+import DeckView from '../components/DeckView'
+import QuizView from '../components/QuizView'
 
 
 const NOTIFICATION_KEY = 'UdaciCards:notifications'
@@ -61,5 +67,23 @@ export function setLocalNotification () {
       }
     })
 }
+
+export const MainNavigator = StackNavigator({
+  DeckList: {
+    screen: DeckList
+  },
+  NewQuestion: {
+    screen: NewQuestion
+  },
+  NewDeck: {
+    screen: NewDeck
+  },
+  DeckView: {
+    screen: DeckView
+  },
+  QuizView: {
+    screen: QuizView
+  }
+})
 
 
