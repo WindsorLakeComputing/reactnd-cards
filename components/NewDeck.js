@@ -11,13 +11,10 @@ class NewDeck extends Component {
     };
   }
 
-  componentDidMount(){
-    console.log("Inside of NewDeck.js ")
-  }
-
   submit = () => {
-    saveDeckTitle(this.state.title)
-    this.setState(() => ({ title: 'Deck Title' }))
+    saveDeckTitle(this.state.title).then((data) =>{
+      this.props.navigation.navigate('DeckList');
+    })
   }
 
   render() {

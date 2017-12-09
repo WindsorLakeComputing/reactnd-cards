@@ -15,8 +15,7 @@ class DeckView extends Component {
 
   startQuiz = () => {
     this.props.navigation.navigate('QuizView',
-      { deck: this.props.navigation.state.params.deck, 
-      deckTitle: this.props.navigation.state.params.deckTitle})
+      { deck: this.props.navigation.state.params.deck})
   }
 
   render() {
