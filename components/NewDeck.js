@@ -13,8 +13,8 @@ class NewDeck extends Component {
 
   submit = () => {
     saveDeckTitle(this.state.title).then((data) =>{
-      this.props.navigation.navigate('DeckList');
-    })
+      this.props.navigation.navigate('DeckView',
+        { deck: [], deckTitle: this.state.title})})
   }
 
   render() {

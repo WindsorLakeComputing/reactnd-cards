@@ -23,7 +23,7 @@ export function clearLocalNotification () {
     .then(Notifications.cancelAllScheduledNotificationsAsync)
 }
 
-function createNotification () {
+createNotification = () => {
   return {
     title: 'You need to study!',
     body: "You haven't studied today. Do it NOW!",

@@ -20,10 +20,11 @@ class NewQuestion extends Component {
     }
     let newDeck = this.props.navigation.state.params.deck;
     newDeck.push(newCard);
-    addCardToDeck(this.props.navigation.state.params.deckTitle, newCard);
+    addCardToDeck(this.props.navigation.state.params.deckTitle, newCard).then((data) =>{
     this.props.navigation.navigate('DeckView',
             { deck: newDeck, 
-              deckTitle: this.props.navigation.state.params.deckTitle});
+              deckTitle: this.props.navigation.state.params.deckTitle})
+    })
   }
 
   render() {
